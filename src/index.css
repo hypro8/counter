@@ -10,6 +10,7 @@ Global Styles
 */
 html {
   font-size: 100%;
+  box-sizing: border-box;
 }
 *,
 ::before,
@@ -46,18 +47,48 @@ img:not(.nav-logo) {
 input {
   outline: none;
 }
+#header {
+  max-width: 800px;
+}
 .main-section {
-  width: 95vw;
+  position: relative;
+  width: 98vw;
   margin: 0 auto;
-  background: linear-gradient(rgba(63, 208, 212, 0.7), rgba(0, 0, 0, 0.7)) no-repeat;
-  background: rgba(63, 208, 212, 0.7) no-repeat;
+  background: linear-gradient(270deg, #004c97 70%, #017cbd 100%) no-repeat;
+  padding: 0.5rem;
 }
 .main-counter {
-  width: 95vw;
+  width: 100%;
 }
 /* Header section */
+.headline {
+  padding: 0.3rem 0 0.7rem 0.2rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #f7f7f7;
+  text-transform: capitalize;
+}
+@keyframes scale1 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.005);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .selected {
-  background-color: orangered;
+  background-color: #406db6;
+  animation-name: scale1;
+  animation-duration: 0.1s;
+}
+.selected-bcg-01 {
+  background-color: #ffe4cc;
+}
+.selected-bcg-02 {
+  background-color: #f7f7f7;
 }
 .single-counter-container {
   display: flex;
@@ -84,8 +115,12 @@ input {
   height: 100%;
   padding-right: 0.5%;
 }
+.counter-control {
+  width: 21%;
+  height: 100%;
+}
 .btn-counter-control {
-  width: 22%;
+  width: 100%;
   height: 100%;
   font-size: 3rem;
   font-weight: 400;
@@ -100,8 +135,120 @@ input {
   margin: 0 0.1rem;
 }
 .btn-clear-counter {
-  flex: 2;
+  width: 10%;
   height: 100%;
-  margin-right: 0.3rem;
-  font-size: 1rem;
+  margin-right: 0.7rem;
+  font-size: 1.2rem;
+}
+.main-counter-setting {
+  width: 100%;
+  margin: 0.5rem 0;
+  height: 4rem;
+  max-width: 800px;
+}
+.setting-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.4s;
+  transform: scale(0.99);
+}
+.setting-switch-on {
+  transform: rotateX(90deg);
+}
+.setting-switch-off {
+  transform: rotateX(-90deg);
+}
+.setting-panel {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #f2d376;
+  transform: translateY(32px) rotateX(-90deg);
+  padding-right: 1.2rem;
+}
+.setting-functions {
+  display: flex;
+  margin-left: 0.5rem;
+}
+.btn-add-counter,
+.btn-clear-all {
+  height: 100%;
+  padding: 1rem 1rem;
+  font-weight: bold;
+  color: #ccc;
+  background-color: #017cbd;
+  text-transform: capitalize;
+}
+.btn-clear-all {
+  margin-left: 0.3rem;
+}
+.setting-switch {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  text-align: right;
+  background-color: #65bf6a;
+  padding: 0 1.5rem;
+  transform: translateZ(2rem);
+}
+.setting-switch i svg {
+  font-size: 1.6rem;
+  height: 100%;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.setting-switch i svg:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.close_setting_icon {
+  height: 100%;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.close_setting_icon svg {
+  display: block;
+  height: 100%;
+}
+.close_setting_icon:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10rem;
+  height: 100%;
+  background-color: pink;
+  opacity: 50%;
+  padding: 0.8rem;
+  transition: all 0.3s linear;
+  transform: translate(100%);
+}
+.showSide {
+  transform: translate(0);
+}
+.sidebar-title {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+.sidebar-item {
+  padding: 0.5rem;
+}
+@media screen and (max-width: 690px) {
+  .main-section {
+    width: 100%;
+  }
 }

@@ -1,56 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
+import { useGlobalContext } from "./Context";
 
-const getLocalStorage = () => {
-  let list = localStorage.getItem("list");
-  if (list) {
-    return JSON.parse(list);
-  } else {
-    return [];
-  }
-};
-
-const SingleCounter = ({
-  item,
-  handlePlus,
-  handleMinus,
-  handleInput,
-  handleSingleClear,
-  handleCounterName,
-  handleCounterSelect,
-}) => {
-  // const [counterRead, setCounterRead] = useState(0);
-  // const [list, setList] = useState(getLocalStorage());
-
-  const handleUserInputValue = (inputValue) => {
-    if (isNaN(inputValue)) {
-      console.log("input value is not a num");
-    } else if (inputValue === null || inputValue === "") {
-      console.log("value is null");
-      handleInput(item.id, 0);
-    } else {
-      handleInput(item.id, parseInt(inputValue));
-    }
-  };
-
-  const input_counter_name = (inputName) => {
-    if (inputName === null || inputName === "") {
-      console.log("input cannot be null or empty");
-      // handleCounterName(item.id, "enter counter name...");
-      handleCounterName(item.id, inputName);
-    } else {
-      handleCounterName(item.id, inputName);
-    }
-  };
+const SingleCounter = ({ item }) => {
+  const { handle_counter_functions_ctx, handle_user_input_ctx } =
+    useGlobalContext();
 
   return (
-    <article className={`single-counter ${item.selected ? "selected" : null}`}>
+    <article
+      className={`${
+        item.selected ? "single-counter selected" : "single-counter"
+      }`}
+    >
       <div
         className="single-counter-container"
-        onClick={() => handleCounterSelect(item.id)}
+        onClick={(e) => handle_counter_functions_ctx(e, item.id, "select")}
       >
         <button
           className="btn-clear-counter"
-          onClick={() => handleSingleClear(item.id)}
+          onClick={(e) => handle_counter_functions_ctx(e, item.id, "clear")}
         >
           clear
         </button>
@@ -58,34 +25,46 @@ const SingleCounter = ({
           <input
             type="text"
             name=""
-            className="counter-name"
-            onChange={(e) => input_counter_name(e.target.value)}
+            className={`${
+              item.selected ? "counter-name selected-bcg-01" : "counter-name"
+            }`}
+            onChange={(e) =>
+              handle_user_input_ctx(item.id, e.target.value, "enterName")
+            }
             value={item.name}
             placeholder="enter name..."
           />
         </div>
         <div className="counter-panel">
-          <button
-            className="btn-counter-control"
-            onClick={() => handleMinus(item.id)}
-          >
-            -
-          </button>
+          <div className="counter-control">
+            <button
+              className="btn-counter-control"
+              onClick={(e) => handle_counter_functions_ctx(e, item.id, "minus")}
+            >
+              -
+            </button>
+          </div>
           <input
             type="text"
-            className="counter-display"
+            className={`${
+              item.selected
+                ? "counter-display selected-bcg-01"
+                : "counter-display "
+            }`}
             value={item.count}
             onChange={(e) => {
-              handleUserInputValue(e.target.value);
+              handle_user_input_ctx(item.id, e.target.value, "enterCountValue");
             }}
             placeholder="0"
           />
-          <button
-            className="btn-counter-control"
-            onClick={(e) => handlePlus(e, item.id)}
-          >
-            +
-          </button>
+          <div className="counter-control">
+            <button
+              className="btn-counter-control"
+              onClick={(e) => handle_counter_functions_ctx(e, item.id, "plus")}
+            >
+              +
+            </button>
+          </div>
         </div>
       </div>
     </article>
