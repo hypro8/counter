@@ -40,13 +40,10 @@ Global Styles
 */
 
 html {
-  font-size: 100%;
+  font-size: 8px;
   // equals to: font-size: 1rem (which is 16px by default)
-  box-sizing: border-box;
 }
-*,
-::before,
-::after {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -93,31 +90,52 @@ input {
   outline: none;
 }
 
+@keyframes scale1 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.99);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 
+====== 
+ Styles 
+======
+*/
+
 #header {
   max-width: 800px;
 }
 
 .main-section {
   position: relative;
-  width: 98vw;
+  // width: 98vw;
+  width: 100%;
   margin: 0 auto;
-  // background: linear-gradient(rgba(63, 208, 212, 0.7), rgba(0, 0, 0, 0.7))
-  // no-repeat;
-  // background: rgba(63, 208, 212, 0.7) no-repeat;
   background: @blueGraBackground no-repeat;
-  padding: 0.5rem;
+  padding: 0.3rem 0.1rem;
+}
+
+@media screen and (min-width: 520px) {
+  html {
+    font-size: 16px;
+  }
+
+  .main-section {
+    padding: 0.5rem 0.5rem;
+  }
 }
 
 .main-counter {
   width: 100%;
 }
 
-.main {
-  // max-width: 700px;
-}
-
 /* Header section */
-
 .headline {
   // width: 95vw;
   padding: 0.3rem 0 0.7rem 0.2rem;
@@ -127,22 +145,10 @@ input {
   text-transform: capitalize;
 }
 
-@keyframes scale1 {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.005);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
 .selected {
   background-color: @mediumBlue;
   animation-name: scale1;
-  animation-duration: 0.1s;
+  animation-duration: 0.15s;
 }
 
 .selected-bcg-01 {
