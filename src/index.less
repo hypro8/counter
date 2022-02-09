@@ -121,25 +121,14 @@ input {
   padding: 0.3rem 0.1rem;
 }
 
-@media screen and (min-width: 520px) {
-  html {
-    font-size: 16px;
-  }
-
-  .main-section {
-    padding: 0.5rem 0.5rem;
-  }
-}
-
 .main-counter {
   width: 100%;
 }
 
 /* Header section */
 .headline {
-  // width: 95vw;
-  padding: 0.3rem 0 0.7rem 0.2rem;
-  font-size: 1.6rem;
+  padding: 0.5rem 0 0.7rem;
+  font-size: 2rem;
   font-weight: 800;
   color: @offWhite;
   text-transform: capitalize;
@@ -167,8 +156,26 @@ input {
   display: flex;
   flex-flow: row nowrap;
   max-width: 800px;
-  height: 5rem;
+  height: 7rem;
   padding: 0.3rem;
+}
+
+@media screen and (min-width: 520px) {
+  html {
+    font-size: 16px;
+  }
+
+  .main-section {
+    padding: 0.5rem 0.5rem;
+  }
+
+  .headline {
+    padding: 0.3rem 0 0.7rem 0.2rem;
+    font-size: 1.6rem;
+  }
+  .single-counter-container {
+    height: 5rem;
+  }
 }
 
 .single-counter-name {

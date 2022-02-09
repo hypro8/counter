@@ -70,21 +70,13 @@ input {
   background: linear-gradient(270deg, #004c97 70%, #017cbd 100%) no-repeat;
   padding: 0.3rem 0.1rem;
 }
-@media screen and (min-width: 520px) {
-  html {
-    font-size: 16px;
-  }
-  .main-section {
-    padding: 0.5rem 0.5rem;
-  }
-}
 .main-counter {
   width: 100%;
 }
 /* Header section */
 .headline {
-  padding: 0.3rem 0 0.7rem 0.2rem;
-  font-size: 1.6rem;
+  padding: 0.5rem 0 0.7rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #f7f7f7;
   text-transform: capitalize;
@@ -104,8 +96,23 @@ input {
   display: flex;
   flex-flow: row nowrap;
   max-width: 800px;
-  height: 5rem;
+  height: 7rem;
   padding: 0.3rem;
+}
+@media screen and (min-width: 520px) {
+  html {
+    font-size: 16px;
+  }
+  .main-section {
+    padding: 0.5rem 0.5rem;
+  }
+  .headline {
+    padding: 0.3rem 0 0.7rem 0.2rem;
+    font-size: 1.6rem;
+  }
+  .single-counter-container {
+    height: 5rem;
+  }
 }
 .single-counter-name {
   flex: 5;
