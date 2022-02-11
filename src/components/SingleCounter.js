@@ -1,5 +1,6 @@
 import React from "react";
 import { useGlobalContext } from "./Context";
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 const SingleCounter = ({ item }) => {
   const { handle_counter_functions_ctx, handle_user_input_ctx } =
@@ -41,7 +42,7 @@ const SingleCounter = ({ item }) => {
               className="btn-counter-control"
               onClick={(e) => handle_counter_functions_ctx(e, item.id, "minus")}
             >
-              -
+              <AiOutlineMinus />
             </button>
           </div>
           <input
@@ -62,7 +63,7 @@ const SingleCounter = ({ item }) => {
               className="btn-counter-control"
               onClick={(e) => handle_counter_functions_ctx(e, item.id, "plus")}
             >
-              +
+              <AiOutlinePlus />
             </button>
           </div>
         </div>
