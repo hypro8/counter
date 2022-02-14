@@ -11,6 +11,18 @@ Global Styles
 html {
   font-size: 8px;
 }
+textarea,
+input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
 * {
   margin: 0;
   padding: 0;
@@ -143,7 +155,7 @@ input {
   font-size: 2rem;
   font-weight: 400;
 }
-.btn-counter-control :only-child {
+.btn-counter-control svg {
   flex: 1;
   align-self: center;
 }
