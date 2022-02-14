@@ -17,6 +17,7 @@ const SingleCounter = ({ item }) => {
         onClick={(e) => handle_counter_functions_ctx(e, item.id, "select")}
       >
         <button
+          type="button"
           className="btn-clear-counter"
           onClick={(e) => handle_counter_functions_ctx(e, item.id, "clear")}
         >
@@ -39,6 +40,7 @@ const SingleCounter = ({ item }) => {
         <div className="counter-panel">
           <div className="counter-control">
             <button
+              type="button"
               className="btn-counter-control"
               onClick={(e) => handle_counter_functions_ctx(e, item.id, "minus")}
             >
@@ -60,6 +62,7 @@ const SingleCounter = ({ item }) => {
           />
           <div className="counter-control">
             <button
+              type="button"
               className="btn-counter-control"
               onClick={(e) => handle_counter_functions_ctx(e, item.id, "plus")}
             >
